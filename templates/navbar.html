@@ -1,0 +1,189 @@
+<!-- Navbar -->
+<nav class="bg-white shadow-lg fixed top-0 left-0 right-0 z-[9999]">
+  <div class="container mx-auto px-6">
+    <div class="flex justify-between items-center py-4">
+      <!-- Logo -->
+      <div class="flex items-center group">
+        <a href="{{ url_for('index')  }}" class="flex items-center space-x-4">
+          <div class="w-16 h-16 flex-shrink-0">
+            <img
+              src="{{ url_for('static', filename='img/logo.svg') }}"
+              alt="Steadline Recovery Logo"
+              class="w-16 h-16"
+            />
+          </div>
+
+          <div class="hidden sm:block">
+            <h1
+              class="text-xl font-bold text-secondary-500 group-hover:text-primary-500 transition-colors duration-300"
+            >
+              Steadline Recovery
+            </h1>
+            <p
+              class="text-xs text-accent-500 mt-1 group-hover:text-accent-800 transition-colors duration-300"
+            >
+              24/7 Recovery Service
+            </p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:flex items-center justify-center">
+        <a
+          href="{{url_for('index')}}#hero"
+          class="text-accent-700 hover:text-primary-500 font-medium transition-colors duration-200 py-2 mr-10"
+          >Home</a
+        >
+        <a
+          href="{{ url_for('index') }}#our-story"
+          class="text-accent-700 hover:text-primary-500 font-medium transition-colors duration-200 py-2 mr-10"
+          >Our Story</a
+        >
+        <a
+          href="{{ url_for('index') }}#Why-choose-us"
+          class="text-accent-700 hover:text-primary-500 font-medium transition-colors duration-200 py-2 mr-10"
+          >Why Choose Us</a
+        >
+        <a
+          href="{{ url_for('index') }}#our-services"
+          class="text-accent-700 hover:text-primary-500 font-medium transition-colors duration-200 py-2 mr-10"
+          >Services</a
+        >
+        <a
+          href="{{ url_for('index') }}#get-in-touch"
+          class="text-accent-700 hover:text-primary-500 font-medium transition-colors duration-200 py-2 mr-10"
+          >Contact</a
+        >
+      </div>
+
+      <!-- Emergency Call Button & Mobile Menu -->
+      <div class="flex items-center space-x-5">
+        <!-- Emergency Call Button -->
+        <a
+          href="tel:+447494222307"
+          class="hidden sm:flex bg-primary-500 text-white font-bold rounded-xl px-4 py-2 text-sm hover:bg-primary-600 transform transition-all duration-300 items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-lg">call</span>
+          <span class="hidden md:inline">Emergency:</span>
+          <span class="text-sm">+44 749 422 2307</span>
+        </a>
+
+        <!-- Mobile Emergency Button -->
+        <a
+          href="tel:+447494222307"
+          class="sm:hidden flex items-center bg-primary-500 text-white rounded-full p-3 hover:bg-primary-600 transition-colors duration-200 shadow-lg"
+        >
+          <span class="material-symbols-outlined text-xl">call</span>
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-button"
+          class="lg:hidden text-secondary-500 hover:text-primary-500 transition-colors duration-200 p-2"
+        >
+          <span class="material-symbols-outlined text-2xl" id="menu-icon"
+            >menu</span
+          >
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div
+      id="mobile-menu"
+      class="lg:hidden hidden bg-white border-t border-gray-200"
+    >
+      <div class="px-6 py-6 space-y-1">
+        <a
+          href="{{ url_for('index') }}#hero"
+          class="block text-accent-700 hover:text-primary-500 hover:bg-gray-50 font-medium py-3 px-3 rounded-lg transition-all duration-200"
+          >Home</a
+        >
+        <a
+          href="{{ url_for('index') }}#our-story"
+          class="block text-accent-700 hover:text-primary-500 hover:bg-gray-50 font-medium py-3 px-3 rounded-lg transition-all duration-200"
+          >Our Story</a
+        >
+        <a
+          href="{{ url_for('index') }}#Why-choose-us"
+          class="block text-accent-700 hover:text-primary-500 hover:bg-gray-50 font-medium py-3 px-3 rounded-lg transition-all duration-200"
+          >Why Choose Us</a
+        >
+        <a
+          href="{{ url_for('index') }}#our-services"
+          class="block text-accent-700 hover:text-primary-500 hover:bg-gray-50 font-medium py-3 px-3 rounded-lg transition-all duration-200"
+          >Services</a
+        >
+        <a
+          href="{{ url_for('index') }}#get-in-touch"
+          class="block text-accent-700 hover:text-primary-500 hover:bg-gray-50 font-medium py-3 px-3 rounded-lg transition-all duration-200"
+          >Contact</a
+        >
+
+        <!-- Mobile Emergency Call -->
+        <div class="pt-6 border-t border-gray-200 mt-4">
+          <a
+            href="tel:+447494222307"
+            class="flex items-center justify-center bg-primary-500 text-white font-bold rounded-xl px-5 py-4 hover:bg-primary-600 transition-colors duration-200 gap-3 shadow-lg"
+          >
+            <span class="material-symbols-outlined text-lg">call</span>
+            <span>Emergency: +44 749 422 2307</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle functionality
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuIcon = document.getElementById("menu-icon");
+
+  let isMenuOpen = false;
+
+  mobileMenuButton.addEventListener("click", () => {
+    isMenuOpen = !isMenuOpen;
+
+    if (isMenuOpen) {
+      mobileMenu.classList.remove("hidden");
+      menuIcon.textContent = "close";
+    } else {
+      mobileMenu.classList.add("hidden");
+      menuIcon.textContent = "menu";
+    }
+  });
+
+  // Close mobile menu when clicking on a link
+  const mobileMenuLinks = mobileMenu.querySelectorAll("a");
+  mobileMenuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      isMenuOpen = false;
+      mobileMenu.classList.add("hidden");
+      menuIcon.textContent = "menu";
+    });
+  });
+
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href*="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const href = this.getAttribute("href");
+      const hash = href.includes("#") ? href.split("#")[1] : null;
+
+      if (hash) {
+        const target = document.querySelector(`#${hash}`);
+
+        // If target exists on current page, smooth scroll
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }
+    });
+  });
+</script>
