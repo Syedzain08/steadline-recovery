@@ -1,0 +1,153 @@
+<footer class="bg-secondary-500 text-accent-500 font-primary mt-6 bottom-0">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gray-200"></div>
+  <div
+    class="container mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+  >
+    <!-- Contacts -->
+    <div>
+      <h2 class="text-lg mb-4 font-bold">Contacts</h2>
+      <div class="flex flex-col items-start space-x-3 space-y-2">
+        <a
+          href="tel:+447494222307"
+          class="flex justify-center items-center hover:text-white transition-colors duration-300"
+          ><span class="material-symbols-outlined mr-2">phone</span>+44 749 422
+          2307</a
+        >
+        <a
+          href="mailto:steadlinerecovery@gmail.com"
+          class="flex justify-center items-center hover:text-white transition-colors duration-300"
+          ><span class="material-symbols-outlined mr-2">mail</span
+          >steadlinerecovery@gmail.com</a
+        >
+      </div>
+    </div>
+
+    <!-- Sitemap -->
+    <div>
+      <h2 class="text-lg font-bold mb-4">Sitemap</h2>
+      <ul class="space-y-2">
+        <li>
+          <a
+            href="{{ url_for('index') }}#hero"
+            class="hover:text-white transition-colors duration-300"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="{{ url_for('index') }}#our-story"
+            class="hover:text-white transition-colors duration-300"
+            >Our Story</a
+          >
+        </li>
+        <li>
+          <a
+            href="{{ url_for('index') }}#Why-choose-us"
+            class="hover:text-white transition-colors duration-300"
+            >Why Choose Us?</a
+          >
+        </li>
+        <li>
+          <a
+            href="{{ url_for('index') }}#our-services"
+            class="hover:text-white transition-colors duration-300"
+            >Our Services</a
+          >
+        </li>
+        <li>
+          <a
+            href="{{ url_for('index') }}#get-in-touch"
+            class="hover:text-white transition-colors duration-300"
+            >Contact</a
+          >
+        </li>
+        <li>
+          <a
+            href="{{ url_for('privacy_policy')}}"
+            class="hover:text-white transition-colors duration-300"
+            >Privacy Policy</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- Services -->
+    <div>
+      <h2 class="text-lg font-bold mb-4">Services</h2>
+      <ul class="space-y-2">
+        <li>
+          <a
+            href="{{ url_for('motor_accidents') }}"
+            class="hover:text-white transition-colors duration-300"
+            >Motor Accidents</a
+          >
+        </li>
+        <li>
+          <a
+            href="{{ url_for('vehicle_breakdown') }}"
+            class="hover:text-white transition-colors duration-300"
+            >Vehicle Breakdown</a
+          >
+        </li>
+        <li>
+          <a
+            href="{{ url_for('emergency_towing') }}"
+            class="hover:text-white transition-colors duration-300"
+            >Emergency Towing</a
+          >
+        </li>
+        <li>
+          <a
+            href="{{ url_for('roadside_assistance') }}"
+            class="hover:text-white transition-colors duration-300"
+            >Roadside Assistance</a
+          >
+        </li>
+
+        <li>
+          <a
+            href="{{ url_for('vehicle_transport') }}"
+            class="hover:text-white transition-colors duration-300"
+            >Vehicle Transport</a
+          >
+        </li>
+        <li>
+          <a
+            href="{{ url_for('jumpstarts') }}"
+            class="hover:text-white transition-colors duration-300"
+            >Jumpstarts</a
+          >
+        </li>
+        <li>
+          <a
+            href="{{ url_for('tyre_services') }}"
+            class="hover:text-white transition-colors duration-300"
+            >Tyre Services</a
+          >
+        </li>
+        <li>
+          <a
+            href="{{ url_for('scrap_vehicle_recovery') }}"
+            class="hover:text-white transition-colors duration-300"
+            >Scrap Vehicle Recovery</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- Address -->
+    <div>
+      <h2 class="text-lg font-bold mb-4">Address</h2>
+      <p>Unit 1 Queens Parade, Queens Road</p>
+      <p>HX1 3XY</p>
+      <p>Halifax</p>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div
+    class="border-t border-accent-300 text-center py-4 text-sm text-accent-400"
+  >
+    © 2025 Steadline Recovery. All rights reserved.
+  </div>
+</footer>

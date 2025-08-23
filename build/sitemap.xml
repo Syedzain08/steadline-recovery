@@ -24,4 +24,20 @@
     <loc>https://steadline-recovery.vercel.app/services/roadside-assistance/</loc>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://steadline-recovery.vercel.app/services/vehicle-transport/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://steadline-recovery.vercel.app/services/jumpstarts/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://steadline-recovery.vercel.app/services/tyre-services/</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://steadline-recovery.vercel.app/services/scrap-vehicle-recovery/</loc>
+    <priority>0.8</priority>
+  </url>
 </urlset>
