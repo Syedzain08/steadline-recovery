@@ -106,7 +106,7 @@ def not_found():
 
 
 if __name__ == "__main__":
-    app.config["FREEZER_BASE_URL"] = "https://steadline-recovery.vercel.app/"
+    app.config["FREEZER_BASE_URL"] = "https://steadlinerecovery.co.uk/"
     freezer.init_app(app)
     freezer.freeze()
     copy("build/404/index.html", "build/404.html")
