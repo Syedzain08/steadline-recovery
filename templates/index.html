@@ -4,8 +4,8 @@
   <!-- Background image -->
   <img
     class="absolute inset-0 object-cover w-full h-full"
-    src="{{ url_for('static', filename='img/hero-original.jpg') }}"
-    alt="Background"
+    src="{{ home_data.hero.bg_image }}"
+    alt="{{ home_data.hero.bg_image_alt }}"
   />
 
   <!-- Black overlay -->
@@ -16,23 +16,23 @@
     class="relative z-10 flex flex-col items-center justify-center h-full text-white font-primary px-4 text-center"
   >
     <h1 class="text-3xl sm:text-4xl lg:text-6xl">
-      We Provide The Highest Quality
+      {{ home_data.hero.heading_1 }}
     </h1>
 
     <h1 class="text-3xl sm:text-4xl lg:text-6xl font-bold text-primary-500">
-      Towing Services
+      {{ home_data.hero.heading_2 }}
     </h1>
 
     <p class="mt-4 text-sm sm:text-lg lg:text-2xl text-accent-500">
-      Fast, Courteous, Inexpensive Towing & Roadside Assistance in Halifax
+      {{ home_data.hero.subheading }}
     </p>
 
     <a
-      href="tel:+447456284801"
+      href="tel:{{ general.phone }}"
       class="bg-primary-500 text-white font-bold rounded-xl px-6 py-3 mt-6 hover:bg-primary-600 transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
     >
       <span class="material-symbols-outlined"> call </span>
-      Call Us Now!
+      {{ home_data.hero.cta_text }}
     </a>
   </div>
   <div
@@ -46,26 +46,26 @@
     <div class="flex flex-col lg:flex-row items-center gap-8">
       <div class="lg:w-1/2 flex flex-col items-center lg:items-start">
         <h2 class="text-3xl font-bold font-primary text-secondary-500 mb-4">
-          Our <span class="text-primary-500">Story</span>
+          {{ home_data.our_story.heading_1 }}
+          <span class="text-primary-500"
+            >{{ home_data.our_story.heading_2 }}</span
+          >
         </h2>
         <p
           class="text-lg text-accent-700 font-primary mb-7 text-center lg:text-left"
         >
-          Steadline Recovery was built on a simple promise: fast, reliable, and
-          professional roadside assistance whenever you need it. From our roots
-          in Halifax, we've grown into a trusted 24/7 recovery team serving West
-          Yorkshire. With every call, we put people first.
+          {{ home_data.our_story.body }}
         </p>
         <a
-          href="{{  url_for('index')  }}#get-in-touch"
+          href="{{ home_data.our_story.cta_link }}"
           class="bg-primary-500 text-white font-bold rounded-xl px-6 py-3 hover:bg-primary-600 transform hover:scale-105 transition-all duration-300"
-          >Get In Touch</a
+          >{{ home_data.our_story.cta_text }}</a
         >
       </div>
       <div class="lg:w-1/2">
         <img
-          src="{{ url_for('static', filename='img/our-story.png') }}"
-          alt="Our Story"
+          src="{{ home_data.our_story.image }}"
+          alt="{{ home_data.our_story.image_alt }}"
           class="w-full max-w-full aspect-[4/3] rounded-lg shadow-lg object-cover"
         />
       </div>
@@ -75,12 +75,15 @@
 </section>
 
 <!-- Why Choose Us Section -->
-<section id="Why-choose-us" class="py-12 relative bg-white font-primary">
+<section id="why-choose-us" class="py-12 relative bg-white font-primary">
   <div class="container mx-auto px-4">
     <h1
       class="font-primary text-3xl text-secondary-500 font-bold text-center mb-6"
     >
-      Why<span class="text-primary-500"> Choose Us</span>?
+      {{ home_data.why_choose_us.heading_1 }}
+      <span class="text-primary-500"
+        >{{ home_data.why_choose_us.heading_2 }}</span
+      >
     </h1>
     <!-- Grid -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -99,11 +102,10 @@
           />
         </svg>
         <h1 class="mt-4 text-secondary-500 text-xl font-primary font-bold">
-          24/7 Emergency Service
+          {{ home_data.why_choose_us.cards[0].title }}
         </h1>
         <p class="mt-2 text-accent-700 text-sm font-primary">
-          Breakdowns don't wait, and neither do we. We're always ready to help,
-          day or night.
+          {{ home_data.why_choose_us.cards[0].description }}
         </p>
       </div>
 
@@ -122,11 +124,10 @@
           />
         </svg>
         <h1 class="mt-4 text-secondary-500 text-xl font-primary font-bold">
-          Fast, Reliable Response
+          {{ home_data.why_choose_us.cards[1].title }}
         </h1>
         <p class="mt-2 text-accent-700 text-sm font-primary">
-          Our team is trained, experienced, and equipped to reach you quickly
-          when you need us most.
+          {{ home_data.why_choose_us.cards[1].description }}
         </p>
       </div>
 
@@ -145,11 +146,10 @@
           />
         </svg>
         <h1 class="mt-4 text-secondary-500 text-xl font-primary font-bold">
-          Full Recovery Solutions
+          {{ home_data.why_choose_us.cards[2].title }}
         </h1>
         <p class="mt-2 text-accent-700 text-sm font-primary">
-          From minor breakdowns to major accidents, we handle cars, vans, and
-          light commercial vehicles.
+          {{ home_data.why_choose_us.cards[2].description }}
         </p>
       </div>
 
@@ -168,11 +168,10 @@
           />
         </svg>
         <h1 class="mt-4 text-secondary-500 text-xl font-primary font-bold">
-          Expert, Courteous Service
+          {{ home_data.why_choose_us.cards[3].title }}
         </h1>
         <p class="mt-2 text-accent-700 text-sm font-primary">
-          Our trained professionals prioritize safety, efficiency, and clear
-          communication at every step.
+          {{ home_data.why_choose_us.cards[3].description }}
         </p>
       </div>
     </div>
@@ -195,27 +194,26 @@
         class="flex flex-col bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300"
       >
         <img
-          src="{{ url_for('static', filename='img/motor-accidents.png') }}"
-          alt="Motor Accidents Recovery"
+          src="{{ home_data.services_section.cards[0].image }}"
+          alt="{{ home_data.services_section.cards[0].image_alt }}"
           class="w-full h-36 object-cover"
         />
         <div class="flex flex-col flex-grow p-4">
           <h2
             class="text-secondary-500 font-primary text-lg font-bold text-center mb-2"
           >
-            Motor Accidents
+            {{ home_data.services_section.cards[0].title }}
           </h2>
           <p
             class="text-accent-700 font-primary text-sm leading-relaxed mb-4 flex-grow"
           >
-            Professional accident recovery for all vehicle types. Safe, careful
-            handling of collision situations.
+            {{ home_data.services_section.cards[0].description }}
           </p>
           <a
             href="{{ url_for('motor_accidents') }}"
             class="bg-primary-500 font-primary text-white font-bold rounded-xl px-4 py-2 text-sm text-center hover:bg-primary-600 transform transition-all duration-300"
           >
-            Learn More
+            {{ home_data.services_section.cards[0].link_text }}
           </a>
         </div>
       </div>
@@ -225,27 +223,26 @@
         class="flex flex-col bg-white rounded-lg shadow-sm font-primary border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300"
       >
         <img
-          src="{{ url_for('static', filename='img/vehicle-breakdown.png') }}"
-          alt="Vehicle Breakdown Recovery"
+          src="{{ home_data.services_section.cards[1].image }}"
+          alt="{{ home_data.services_section.cards[1].image_alt }}"
           class="w-full h-36 object-cover"
         />
         <div class="flex flex-col flex-grow p-4">
           <h2
             class="text-secondary-500 text-lg font-bold text-center mb-2 font-primarys"
           >
-            Vehicle Breakdown
+            {{ home_data.services_section.cards[1].title }}
           </h2>
           <p
             class="text-accent-700 text-sm leading-relaxed mb-4 flex-grow font-primary"
           >
-            Fast response for breakdowns and mechanical failures. Quick recovery
-            to get you moving again.
+            {{ home_data.services_section.cards[1].description }}
           </p>
           <a
             href="{{ url_for('vehicle_breakdown') }}"
             class="bg-primary-500 text-white font-primary font-bold rounded-xl px-4 py-2 text-sm text-center hover:bg-primary-600 transform transition-all duration-300"
           >
-            Learn More
+            {{ home_data.services_section.cards[1].link_text }}
           </a>
         </div>
       </div>
@@ -255,27 +252,26 @@
         class="flex flex-col bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300"
       >
         <img
-          src="{{ url_for('static', filename='img/emergency-towing.png') }}"
-          alt="Emergency Towing Services"
+          src="{{ home_data.services_section.cards[2].image }}"
+          alt="{{ home_data.services_section.cards[2].image_alt }}"
           class="w-full h-36 object-cover"
         />
         <div class="flex flex-col flex-grow p-4">
           <h2
             class="text-secondary-500 text-lg font-bold text-center mb-2 font-primary"
           >
-            Emergency Towing
+            {{ home_data.services_section.cards[2].title }}
           </h2>
           <p
             class="text-accent-700 text-sm leading-relaxed mb-4 flex-grow font-primary"
           >
-            24/7 emergency towing throughout Halifax. No job too big or small -
-            we're always ready.
+            {{ home_data.services_section.cards[2].description }}
           </p>
           <a
             href="{{ url_for('emergency_towing') }}"
             class="bg-primary-500 text-white font-bold font-primary rounded-xl px-4 py-2 text-sm text-center hover:bg-primary-600 transform transition-all duration-300"
           >
-            Learn More
+            {{ home_data.services_section.cards[2].link_text }}
           </a>
         </div>
       </div>
@@ -285,28 +281,26 @@
         class="flex flex-col bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300"
       >
         <img
-          src="{{ url_for('static', filename='img/roadside-assistance.png') }}"
-          alt="Roadside Assistance"
+          src="{{ home_data.services_section.cards[3].image }}"
+          alt="{{ home_data.services_section.cards[3].image_alt }}"
           class="w-full h-36 object-cover"
         />
         <div class="flex flex-col flex-grow p-4">
           <h2
             class="text-secondary-500 text-lg font-bold text-center mb-2 font-primary"
           >
-            Roadside Assistance
+            {{ home_data.services_section.cards[3].title }}
           </h2>
           <p
             class="text-accent-700 text-sm leading-relaxed mb-4 flex-grow font-primary"
           >
-            Rapid on-site support for minor vehicle issues. We handle lockouts,
-            fuel delivery, and other urgent problems to get you back on the road
-            fast.
+            {{ home_data.services_section.cards[3].description }}
           </p>
           <a
             href="{{ url_for('roadside_assistance') }}"
             class="bg-primary-500 text-white font-primary font-bold rounded-xl px-4 py-2 text-sm text-center hover:bg-primary-600 transform transition-all duration-300"
           >
-            Learn More
+            {{ home_data.services_section.cards[3].link_text }}
           </a>
         </div>
       </div>
@@ -315,28 +309,26 @@
         class="flex flex-col bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300"
       >
         <img
-          src="{{ url_for('static', filename='img/vehicle-transport.png') }}"
-          alt="Vehicle Transport"
+          src="{{ home_data.services_section.cards[4].image }}"
+          alt="{{ home_data.services_section.cards[4].image_alt }}"
           class="w-full h-36 object-cover"
         />
         <div class="flex flex-col flex-grow p-4">
           <h2
             class="text-secondary-500 text-lg font-bold text-center mb-2 font-primary"
           >
-            Vehicle Transport
+            {{ home_data.services_section.cards[4].title }}
           </h2>
           <p
             class="text-accent-700 text-sm leading-relaxed mb-4 flex-grow font-primary"
           >
-            Safe, secure vehicle transport across Halifax and beyond. Whether
-            moving cars, motorcycles, or classic vehicles, we ensure a smooth
-            journey.
+            {{ home_data.services_section.cards[4].description }}
           </p>
           <a
             href="{{ url_for('vehicle_transport') }}"
             class="bg-primary-500 text-white font-primary font-bold rounded-xl px-4 py-2 text-sm text-center hover:bg-primary-600 transform transition-all duration-300"
           >
-            Learn More
+            {{ home_data.services_section.cards[4].link_text }}
           </a>
         </div>
       </div>
@@ -345,27 +337,26 @@
         class="flex flex-col bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300"
       >
         <img
-          src="{{ url_for('static', filename='img/jumpstarts.png') }}"
-          alt="Jumpstarts"
+          src="{{ home_data.services_section.cards[5].image }}"
+          alt="{{ home_data.services_section.cards[5].image_alt }}"
           class="w-full h-36 object-cover"
         />
         <div class="flex flex-col flex-grow p-4">
           <h2
             class="text-secondary-500 text-lg font-bold text-center mb-2 font-primary"
           >
-            Jumpstarts
+            {{ home_data.services_section.cards[5].title }}
           </h2>
           <p
             class="text-accent-700 text-sm leading-relaxed mb-4 flex-grow font-primary"
           >
-            Fast and reliable battery jumpstarts at your location. Never get
-            stranded—our team gets your vehicle running quickly.
+            {{ home_data.services_section.cards[5].description }}
           </p>
           <a
             href="{{ url_for('jumpstarts') }}"
             class="bg-primary-500 text-white font-primary font-bold rounded-xl px-4 py-2 text-sm text-center hover:bg-primary-600 transform transition-all duration-300"
           >
-            Learn More
+            {{ home_data.services_section.cards[5].link_text }}
           </a>
         </div>
       </div>
@@ -374,27 +365,26 @@
         class="flex flex-col bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300"
       >
         <img
-          src="{{ url_for('static', filename='img/tyre-services.png') }}"
-          alt="Tyre Services"
+          src="{{ home_data.services_section.cards[6].image }}"
+          alt="{{ home_data.services_section.cards[6].image_alt }}"
           class="w-full h-36 object-cover"
         />
         <div class="flex flex-col flex-grow p-4">
           <h2
             class="text-secondary-500 text-lg font-bold text-center mb-2 font-primary"
           >
-            Tyre Services
+            {{ home_data.services_section.cards[6].title }}
           </h2>
           <p
             class="text-accent-700 text-sm leading-relaxed mb-4 flex-grow font-primary"
           >
-            On-the-spot tyre repair, replacement, and maintenance. We keep you
-            rolling safely with professional tyre care.
+            {{ home_data.services_section.cards[6].description }}
           </p>
           <a
             href="{{ url_for('tyre_services') }}"
             class="bg-primary-500 text-white font-primary font-bold rounded-xl px-4 py-2 text-sm text-center hover:bg-primary-600 transform transition-all duration-300"
           >
-            Learn More
+            {{ home_data.services_section.cards[6].link_text }}
           </a>
         </div>
       </div>
@@ -403,27 +393,26 @@
         class="flex flex-col bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow duration-300"
       >
         <img
-          src="{{ url_for('static', filename='img/scrap-vehicle-recovery.png') }}"
-          alt="Scrap Vehicle Recovery"
+          src="{{ home_data.services_section.cards[7].image }}"
+          alt="{{ home_data.services_section.cards[7].image_alt }}"
           class="w-full h-36 object-cover"
         />
         <div class="flex flex-col flex-grow p-4">
           <h2
             class="text-secondary-500 text-lg font-bold text-center mb-2 font-primary"
           >
-            Scrap Vehicle Recovery
+            {{ home_data.services_section.cards[7].title }}
           </h2>
           <p
             class="text-accent-700 text-sm leading-relaxed mb-4 flex-grow font-primary"
           >
-            Efficient removal of unwanted or damaged vehicles. Quick disposal
-            with minimal hassle for you.
+            {{ home_data.services_section.cards[7].description }}
           </p>
           <a
             href="{{ url_for('scrap_vehicle_recovery') }}"
             class="bg-primary-500 text-white font-primary font-bold rounded-xl px-4 py-2 text-sm text-center hover:bg-primary-600 transform transition-all duration-300"
           >
-            Learn More
+            {{ home_data.services_section.cards[7].link_text }}
           </a>
         </div>
       </div>
@@ -438,7 +427,9 @@
     <h1
       class="font-primary text-3xl text-secondary-500 font-bold text-center mb-6"
     >
-      Get In <span class="text-primary-500">Touch</span>
+      {{ home_data.contact.heading_1}}<span class="text-primary-500"
+        >{{ home_data.contact.heading_2 }}</span
+      >
     </h1>
     <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] mx-auto gap-8">
       <div class="flex items-center flex-col relative font-primary">
@@ -462,9 +453,9 @@
                 Call Us 24/7
               </h2>
               <a
-                href="tel:+447456284801"
+                href="tel:{{ general.phone }}"
                 class="text-primary-500 text-xl font-bold hover:underline"
-                >+44 745 628 4801</a
+                >{{ general.phone_formatted }}</a
               >
             </div>
           </div>
@@ -487,9 +478,9 @@
                 Email Us
               </h2>
               <a
-                href="mailto:info@steadlinerecovery.co.uk"
+                href="mailto:{{ general.email }}"
                 class="text-primary-500 text-xl font-bold hover:underline"
-                >info@steadlinerecovery.co.uk</a
+                >{{ general.email }}</a
               >
             </div>
           </div>
@@ -512,8 +503,8 @@
             <div>
               <h3 class="text-secondary-500 font-bold text-lg">Service Area</h3>
               <p class="text-accent-700 text-sm">
-                Halifax & Surrounding Areas<br />
-                West Yorkshire, UK
+                {{ general.service_area }}<br />
+                {{ general.service_area_detail }}
               </p>
             </div>
           </div>
@@ -528,29 +519,29 @@
           <h2
             class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 md:mb-6 text-center leading-tight"
           >
-            Emergency Breakdown?
+            {{ home_data.contact.emergency_heading }}
           </h2>
 
           <p
             class="text-accent-100 mb-6 sm:mb-8 md:mb-10 text-center text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed max-w-2xl px-2"
           >
-            Don't wait - we're available
-            <strong class="text-white">24/7</strong> for emergency towing and
-            roadside assistance throughout Halifax and surrounding areas.
+            {{ home_data.contact.emergency_body }}
           </p>
 
           <a
-            href="tel:+447456284801"
+            href="tel:{{ general.phone }}"
             class="bg-primary-500 text-white font-bold rounded-xl px-4 sm:px-6 md:px-8 py-3 sm:py-4 text-base sm:text-lg md:text-xl hover:bg-primary-600 transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 w-full max-w-xs sm:max-w-sm md:max-w-md shadow-lg hover:shadow-xl"
           >
             <span
               class="material-symbols-outlined text-lg sm:text-xl md:text-2xl"
               >call</span
             >
-            <span class="whitespace-nowrap">Call Now</span>
+            <span class="whitespace-nowrap"
+              >{{ home_data.contact.emergency_cta }}</span
+            >
             <span class="hidden sm:inline">:</span>
             <span class="text-sm sm:text-base md:text-lg"
-              >+44 745 628 4801</span
+              >{{ general.phone_formatted }}</span
             >
           </a>
         </div>

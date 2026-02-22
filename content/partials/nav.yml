@@ -1,0 +1,11 @@
+items:
+  - label: "Home"
+    url: "#hero"
+  - label: "Our Story"
+    url: "#our-story"
+  - label: "Why Choose Us"
+    url: "#why-choose-us"
+  - label: "Services"
+    url: "#our-services"
+  - label: "Contact"
+    url: "#get-in-touch"

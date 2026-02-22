@@ -15,94 +15,79 @@
       type="text/javascript"
       src="https://cdn-cookieyes.com/client_data/5a0a4c271954530de56f98ea/script.js"
     ></script>
-
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
     />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="{{ url_for('static', filename='img/logo.svg') }}"
-    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ seo.logo }}" />
+
+    <!-- Umami Analytics -->
     <script
       defer
       src="https://cloud.umami.is/script.js"
-      data-website-id="3abdc368-21b8-4d4c-aabc-de6a53e32889"
+      data-website-id="16d0622e-234d-4d58-b571-81bc32717da1"
     ></script>
 
     {% block seo_title %}
-    <title>Steadline Recovery - 24/7 Towing Services Halifax</title>
+    <title>{{ seo.og.title }}</title>
     {% endblock %} {% block seo_description %}
-    <meta
-      name="description"
-      content="Fast, reliable 24/7 towing and roadside assistance in Halifax, West Yorkshire. Emergency breakdown and accident recovery. Call +44 745 628 4801 now!"
-    />
+    <meta name="description" content="{{ seo.site_description }}" />
+    <meta name="keywords" content="{{ seo.site_keywords }}" />
     {% endblock %} {% block seo_canonical %}
     <link rel="canonical" href="{{ request.url }}" />
     {% endblock %} {% block seo_og %}
-
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="Steadline Recovery - 24/7 Towing Services Halifax"
-    />
-    <meta
-      property="og:description"
-      content="Fast, reliable emergency breakdown recovery and accident recovery services throughout West Yorkshire."
-    />
+    <meta property="og:type" content="{{ seo.og.type }}" />
+    <meta property="og:title" content="{{ seo.og.title }}" />
+    <meta property="og:description" content="{{ seo.og.description }}" />
     <meta property="og:url" content="{{ request.url }}" />
-    <meta
-      property="og:image"
-      content="{{ url_for('static', filename='img/share-banner.png', _external=True) }}"
-    />
-
+    <meta property="og:image" content="{{ site_url }}{{ seo.og.image }}" />
     {% endblock %} {% block seo_twitter %}
     <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Steadline Recovery - 24/7 Towing Services Halifax"
-    />
-    <meta
-      name="twitter:description"
-      content="24/7 emergency breakdown recovery and roadside assistance in Halifax, West Yorkshire."
-    />
-    <meta
-      name="twitter:image"
-      content="{{ url_for('static', filename='img/share-banner.png', _external=True) }}"
-    />
-    {% endblock %} {% block seo_schema %}
+    <meta name="twitter:card" content="{{ seo.twitter.card }}" />
+    <meta name="twitter:title" content="{{ seo.twitter.title }}" />
+    <meta name="twitter:description" content="{{ seo.twitter.description }}" />
+    <meta name="twitter:image" content="{{ site_url }}{{ seo.og.image }}" />
+    {% if seo.twitter.handle %}
+    <meta name="twitter:site" content="{{ seo.twitter.handle }}" />
+    {% endif %} {% endblock %} {% block seo_schema %}
     <!-- Local Business Schema -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
-        "name": "Steadline Recovery",
-        "url": "https://www.steadlinerecovery.co.uk/",
-        "image": "{{ url_for('static', filename='img/share-banner.png', _external=True) }}",
-        "description": "24/7 towing, breakdown recovery, and roadside assistance in Halifax, West Yorkshire.",
-        "telephone": "+447456284801",
+        "name": "{{ general.site_name }}",
+        "url": "{{ site_url }}",
+        "image": "{{ site_url }}{{ seo.og.image }}",
+        "description": "{{ seo.site_description }}",
+        "telephone": "{{ general.phone }}",
+        "email": "{{ general.email }}",
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "Unit 1 Queens Parade, Queens Road",
-          "addressLocality": "Halifax",
-          "addressRegion": "West Yorkshire",
-          "postalCode": "HX1 3XY",
-          "addressCountry": "GB"
+          "streetAddress": "{{ general.address.street }}",
+          "addressLocality": "{{ general.address.city }}",
+          "addressRegion": "{{ general.address.region }}",
+          "postalCode": "{{ general.address.postcode }}",
+          "addressCountry": "{{ general.address.country }}"
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": "53.719819",
-          "longitude": "-1.881691"
+          "latitude": "{{ seo.schema.latitude }}",
+          "longitude": "{{ seo.schema.longitude }}"
         },
-        "openingHours": "Mo-Su 00:00-24:00"
+        "openingHours": "{{ seo.schema.opening_hours }}",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "{{ seo.schema.rating.value }}",
+          "reviewCount": "{{ seo.schema.rating.count }}"
+        }
       }
     </script>
     {% endblock %} {% block seo_theme %}
-    <meta name="theme-color" content="#2563eb" />
-    {% endblock %} {% block head %} {% endblock %}
+    <meta name="theme-color" content="{{ seo.theme_color }}" />
+    {% endblock %} {% block head %}{% endblock %}
   </head>
   <body class="h-full flex flex-col pt-22">
     {% include 'navbar.html' %}

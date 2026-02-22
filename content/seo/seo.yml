@@ -1,0 +1,25 @@
+site_description: "Fast, reliable 24/7 towing and roadside assistance in Halifax, West Yorkshire. Emergency breakdown and accident recovery. Call +44 745 628 4801 now!"
+site_keywords: "towing, recovery, breakdown, Halifax, West Yorkshire, roadside assistance, 24/7, emergency, accident recovery"
+logo: "/static/img/logo.svg"
+
+og:
+  title: "Steadline Recovery - 24/7 Towing Services Halifax"
+  description: "Fast, reliable emergency breakdown recovery and accident recovery services throughout West Yorkshire."
+  type: "website"
+  image: "/static/img/share-banner.png"
+
+twitter:
+  card: "summary_large_image"
+  title: "Steadline Recovery - 24/7 Towing Services Halifax"
+  description: "24/7 emergency breakdown recovery and roadside assistance in Halifax, West Yorkshire."
+  handle: ""
+
+theme_color: "#2563eb"
+
+schema:
+  latitude: "53.719819"
+  longitude: "-1.881691"
+  opening_hours: "Mo-Su 00:00-24:00"
+  rating:
+    value: "5.0"
+    count: "0"

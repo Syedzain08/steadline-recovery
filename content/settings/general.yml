@@ -1,0 +1,16 @@
+site_name: Steadline Recovery
+nav_logo: /static/img/nav_logo.svg
+logo: /static/img/logo.svg
+tagline: 24/7 Recovery Service
+phone: "+447456284801"
+phone_formatted: +44 745 628 4801
+email: info@steadlinerecovery.co.uk
+service_area: Halifax & Surrounding Areas
+service_area_detail: West Yorkshire, UK
+address:
+  street: Unit 1 Queens Parade, Queens Road
+  city: Halifax
+  region: West Yorkshire
+  postcode: HX1 3XY
+  country: GB
+copyright_year: "2026"

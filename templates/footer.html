@@ -8,139 +8,58 @@
       <h2 class="text-lg mb-4 font-bold">Contacts</h2>
       <div class="flex flex-col items-start space-x-3 space-y-2">
         <a
-          href="tel:+447456284801"
+          href="tel:{{ general.phone }}"
           class="flex justify-center items-center hover:text-white transition-colors duration-300"
-          ><span class="material-symbols-outlined mr-2">phone</span>+44 745 628
-          4801</a
+          ><span class="material-symbols-outlined mr-2">phone</span>{{
+          general.phone_formatted }}</a
         >
         <a
-          href="mailto:info@steadlinerecovery.co.uk"
+          href="mailto:{{ general.email }}"
           class="flex justify-center items-center hover:text-white transition-colors duration-300"
-          ><span class="material-symbols-outlined mr-2">mail</span
-          >info@steadlinerecovery.co.uk</a
+          ><span class="material-symbols-outlined mr-2">mail</span>{{
+          general.email }}</a
         >
       </div>
     </div>
 
     <!-- Sitemap -->
     <div>
-      <h2 class="text-lg font-bold mb-4">Sitemap</h2>
+      <h2 class="text-lg font-bold mb-4">{{ footer.sitemap_heading }}</h2>
       <ul class="space-y-2">
+        {% for item in footer.sitemap_links %}
         <li>
           <a
-            href="{{ url_for('index') }}#hero"
+            href="{{ item.url }}"
             class="hover:text-white transition-colors duration-300"
-            >Home</a
+            >{{ item.label }}</a
           >
         </li>
-        <li>
-          <a
-            href="{{ url_for('index') }}#our-story"
-            class="hover:text-white transition-colors duration-300"
-            >Our Story</a
-          >
-        </li>
-        <li>
-          <a
-            href="{{ url_for('index') }}#Why-choose-us"
-            class="hover:text-white transition-colors duration-300"
-            >Why Choose Us?</a
-          >
-        </li>
-        <li>
-          <a
-            href="{{ url_for('index') }}#our-services"
-            class="hover:text-white transition-colors duration-300"
-            >Our Services</a
-          >
-        </li>
-        <li>
-          <a
-            href="{{ url_for('index') }}#get-in-touch"
-            class="hover:text-white transition-colors duration-300"
-            >Contact</a
-          >
-        </li>
-        <li>
-          <a
-            href="{{ url_for('privacy_policy')}}"
-            class="hover:text-white transition-colors duration-300"
-            >Privacy Policy</a
-          >
-        </li>
+        {% endfor %}
       </ul>
     </div>
 
     <!-- Services -->
     <div>
-      <h2 class="text-lg font-bold mb-4">Services</h2>
+      <h2 class="text-lg font-bold mb-4">{{ footer.services_heading }}</h2>
       <ul class="space-y-2">
+        {% for service in footer['services_links'] %}
         <li>
           <a
-            href="{{ url_for('motor_accidents') }}"
+            href="{{ service.url }}"
             class="hover:text-white transition-colors duration-300"
-            >Motor Accidents</a
+            >{{ service.label }}</a
           >
         </li>
-        <li>
-          <a
-            href="{{ url_for('vehicle_breakdown') }}"
-            class="hover:text-white transition-colors duration-300"
-            >Vehicle Breakdown</a
-          >
-        </li>
-        <li>
-          <a
-            href="{{ url_for('emergency_towing') }}"
-            class="hover:text-white transition-colors duration-300"
-            >Emergency Towing</a
-          >
-        </li>
-        <li>
-          <a
-            href="{{ url_for('roadside_assistance') }}"
-            class="hover:text-white transition-colors duration-300"
-            >Roadside Assistance</a
-          >
-        </li>
-
-        <li>
-          <a
-            href="{{ url_for('vehicle_transport') }}"
-            class="hover:text-white transition-colors duration-300"
-            >Vehicle Transport</a
-          >
-        </li>
-        <li>
-          <a
-            href="{{ url_for('jumpstarts') }}"
-            class="hover:text-white transition-colors duration-300"
-            >Jumpstarts</a
-          >
-        </li>
-        <li>
-          <a
-            href="{{ url_for('tyre_services') }}"
-            class="hover:text-white transition-colors duration-300"
-            >Tyre Services</a
-          >
-        </li>
-        <li>
-          <a
-            href="{{ url_for('scrap_vehicle_recovery') }}"
-            class="hover:text-white transition-colors duration-300"
-            >Scrap Vehicle Recovery</a
-          >
-        </li>
+        {% endfor %}
       </ul>
     </div>
 
     <!-- Address -->
     <div>
       <h2 class="text-lg font-bold mb-4">Address</h2>
-      <p>Unit 1 Queens Parade, Queens Road</p>
-      <p>HX1 3XY</p>
-      <p>Halifax</p>
+      <p>{{ general.address.street }}</p>
+      <p>{{ general.address.postcode }}</p>
+      <p>{{ general.address.city }}</p>
     </div>
   </div>
 
@@ -148,6 +67,6 @@
   <div
     class="border-t border-accent-300 text-center py-4 text-sm text-accent-400"
   >
-    © 2025 Steadline Recovery. All rights reserved.
+    © {{ general.copyright_year }} {{ general.site_name }}. All rights reserved.
   </div>
 </footer>

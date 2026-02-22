@@ -4,13 +4,15 @@
   "main": "index.js",
   "scripts": {
     "dev": "tailwindcss -i ./src/input.css -o ./static/css/main.css --watch",
-    "build": "tailwindcss -i ./src/input.css -o ./static/css/main.css --minify"
+    "tailwind-build": "tailwindcss -i ./src/input.css -o ./static/css/main.css --minify",
+    "build": "npm install && npm run tailwind-build && python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt && python server.py"
   },
-  "author": "",
+  "author": "Syed Zain Ul Abideen",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "@tailwindcss/cli": "^4.1.11",
+    "decap-cms-app": "^3.10.0",
     "tailwindcss": "^4.1.11"
   }
 }

@@ -1,0 +1,200 @@
+backend:
+  name: github
+  repo: Syedzain08/steadline-recovery
+  branch: master
+  base_url: https://www.steadlinerecovery.co.uk
+  auth_endpoint: api/auth
+  proxied: false
+  
+site_url: https://www.steadlinerecovery.co.uk
+
+media_folder: "/static/img/"
+public_folder: "/static/img/"
+
+collections:
+  - name: "settings"
+    label: "⚙️ Site Settings"
+    files:
+
+      - name: "general"
+        label: "General"
+        file: "content/settings/general.yml"
+        fields:
+          - { label: "Site Name", name: "site_name", widget: "string", default: "Steadline Recovery" }
+          - { label: "Nav Logo", name: "nav_logo", widget: "image", default: "static/img/nav_logo.svg" }
+          - { label: "Logo", name: "logo", widget: "image", default: "static/img/logo.svg" }
+          - { label: "Tagline", name: "tagline", widget: "string", default: "24/7 Recovery Service" }
+          - { label: "Phone (raw, e.g. +447456284801)", name: "phone", widget: "string", default: "+447456284801" }
+          - { label: "Phone (formatted)", name: "phone_formatted", widget: "string", default: "+44 745 628 4801" }
+          - { label: "Email", name: "email", widget: "string", default: "info@steadlinerecovery.co.uk" }
+          - { label: "Service Area (short)", name: "service_area", widget: "string", default: "Halifax & Surrounding Areas" }
+          - { label: "Service Area (description)", name: "service_area_detail", widget: "string", default: "West Yorkshire, UK" }
+          - label: "Address"
+            name: "address"
+            widget: "object"
+            fields:
+              - { label: "Street", name: "street", widget: "string", default: "Unit 1 Queens Parade, Queens Road" }
+              - { label: "City", name: "city", widget: "string", default: "Halifax" }
+              - { label: "Region", name: "region", widget: "string", default: "West Yorkshire" }
+              - { label: "Postcode", name: "postcode", widget: "string", default: "HX1 3XY" }
+              - { label: "Country Code", name: "country", widget: "string", default: "GB" }
+          - { label: "Copyright Year", name: "copyright_year", widget: "string", default: "2026" }
+
+
+  - name: "seo"
+    label: "🔍 SEO & Meta Tags"
+    files:
+
+      - name: "seo"
+        label: "SEO & Meta"
+        file: "content/seo/seo.yml"
+        fields:
+          - { label: "Site Description", name: "site_description", widget: "text", hint: "Description for search engines (150-160 characters)", default: "Fast, reliable 24/7 towing and roadside assistance in Halifax, West Yorkshire. Emergency breakdown and accident recovery. Call +44 745 628 4801 now!" }
+          - { label: "Site Keywords", name: "site_keywords", widget: "string", hint: "Comma-separated keywords", default: "towing, recovery, breakdown, Halifax, West Yorkshire, roadside assistance, 24/7" }
+          - { label: "Logo", name: "logo", widget: "image", hint: "Used as the favicon" }
+
+          - label: "Open Graph (Facebook/LinkedIn)"
+            name: "og"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "OG Title", name: "title", widget: "string", default: "Steadline Recovery - 24/7 Towing Services Halifax" }
+              - { label: "OG Description", name: "description", widget: "text", default: "Fast, reliable emergency breakdown recovery and accident recovery services throughout West Yorkshire." }
+              - { label: "OG Type", name: "type", widget: "string", default: "website" }
+              - { label: "OG Image", name: "image", widget: "image", hint: "Recommended: 1200x630px" }
+
+          - label: "Twitter Card"
+            name: "twitter"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Card Type", name: "card", widget: "select", options: ["summary", "summary_large_image"], default: "summary_large_image" }
+              - { label: "Twitter Title", name: "title", widget: "string", default: "Steadline Recovery - 24/7 Towing Services Halifax" }
+              - { label: "Twitter Description", name: "description", widget: "text", default: "24/7 emergency breakdown recovery and roadside assistance in Halifax, West Yorkshire." }
+              - { label: "Twitter Handle", name: "handle", widget: "string", required: false, hint: "e.g. @steadline" }
+
+          - { label: "Theme Color", name: "theme_color", widget: "string", default: "#2563eb", hint: "Hex color for mobile browser chrome" }
+
+          - label: "Schema.org – Local Business"
+            name: "schema"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Latitude", name: "latitude", widget: "string", default: "53.719819" }
+              - { label: "Longitude", name: "longitude", widget: "string", default: "-1.881691" }
+              - { label: "Opening Hours", name: "opening_hours", widget: "string", default: "Mo-Su 00:00-24:00" }
+              - label: "Rating"
+                name: "rating"
+                widget: "object"
+                fields:
+                  - { label: "Rating Value", name: "value", widget: "string", default: "5.0", hint: "e.g. 5.0" }
+                  - { label: "Review Count", name: "count", widget: "string", default: "0", hint: "Number of reviews" }
+
+
+  - name: "home"
+    label: "🏠 Home Page"
+    files:
+
+      - name: "hero"
+        label: "Hero Section"
+        file: "content/home/hero.yml"
+        fields:
+          - { label: "Heading Line 1", name: "heading_1", widget: "string", default: "We Provide The Highest Quality" }
+          - { label: "Heading Line 2 (highlighted)", name: "heading_2", widget: "string", default: "Towing Services" }
+          - { label: "Subheading", name: "subheading", widget: "string", default: "Fast, Courteous, Inexpensive Towing & Roadside Assistance in Halifax" }
+          - { label: "Call Button Text", name: "cta_text", widget: "string", default: "Call Us Now!" }
+          - { label: "Background Image", name: "bg_image", widget: "image", hint: "Landscape photo, will be cropped to fill screen" }
+          - { label: "Background Image Alt Text", name: "bg_image_alt", widget: "string", default: "Towing Service in Action" }
+
+      - name: "our_story"
+        label: "Our Story Section"
+        file: "content/home/our-story.yml"
+        fields:
+          - { label: "Heading Line 1", name: "heading_1", widget: "string", default: "Our" }
+          - { label: "Heading Line 2 (highlighted )", name: "heading_2", widget: "string", default: "Story" }
+          - { label: "Body Text", name: "body", widget: "text", default: "Steadline Recovery was built on a simple promise: fast, reliable, and professional roadside assistance whenever you need it. From our roots in Halifax, we've grown into a trusted 24/7 recovery team serving West Yorkshire. With every call, we put people first." }
+          - { label: "CTA Button Text", name: "cta_text", widget: "string", default: "Get In Touch" }
+          - { label: "CTA Button Link", name: "cta_link", widget: "string", default: "#get-in-touch" }
+          - { label: "Story Image", name: "image", widget: "image" }
+          - { label: "Image Alt Text", name: "image_alt", widget: "string", default: "Our Story" }
+
+      - name: "why_choose_us"
+        label: "Why Choose Us Section"
+        file: "content/home/why-choose-us.yml"
+        fields:
+          - { label: "Heading Line 1", name: "heading_1", widget: "string", default: "Why" }
+          - { label: "Heading Line 2 (highlighted)", name: "heading_2", widget: "string", default: "Choose Us?" }
+          - label: "Feature Cards"
+            name: "cards"
+            widget: "list"
+            summary: "{{fields.title}}"
+            max: 4
+            min: 4
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+      - name: "services_section"
+        label: "Services Section (Home)"
+        file: "content/home/our-services.yml"
+        fields:
+          - { label: "Heading Line 1", name: "heading_1", widget: "string", default: "Our" }
+          - { label: "Heading Line 2 (highlighted)", name: "heading_2", widget: "string", default: "Services" }
+          - label: "Service Cards"
+            name: "cards"
+            widget: "list"
+            summary: "{{fields.title}}"
+            max: 8
+            min: 8
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Image", name: "image", widget: "image", hint: "Square image representing the service" }
+              - { label: "Image Alt Text", name: "image_alt", widget: "string", default: "Service Image" }
+              - { label: "Link Text", name: "link_text", widget: "string", default: "Learn More" }
+
+      - name: "contact"
+        label: "Get In Touch Section"
+        file: "content/home/contact.yml"
+        fields:
+          - { label: "Heading Line 1", name: "heading_1", widget: "string", default: "Get In" }
+          - { label: "Heading Line 2 (highlighted)", name: "heading_2", widget: "string", default: "Touch" }
+          - { label: "Emergency Box Heading", name: "emergency_heading", widget: "string", default: "Emergency Breakdown?" }
+          - { label: "Emergency Box Body", name: "emergency_body", widget: "text", default: "Don't wait - we're available 24/7 for emergency towing and roadside assistance throughout Halifax and surrounding areas." }
+          - { label: "Emergency Button Text", name: "emergency_cta", widget: "string", default: "Call Now" }
+
+  
+  - name: "partials"
+    label: "🔧 Partials & Reusable Content"
+    files:
+      - name: "nav"
+        label: "Navigation Menu"
+        file: "content/partials/nav.yml"
+        fields:
+          - label: "Menu Items"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+      - name: "footer"
+        label: "Footer Content"
+        file: "content/partials/footer.yml"
+        fields:
+          - { label: "Sitemap Heading", name: "sitemap_heading", widget: "string", default: "Sitemap" }
+          - label: "Sitemap Links"
+            name: "sitemap_links"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
+          - { label: "Services Heading", name: "services_heading", widget: "string", default: "Services" }
+          - label: "Services Links"
+            name: "services_links"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }

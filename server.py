@@ -1,5 +1,7 @@
-from flask import Flask, render_template, Response, url_for
+from flask import Flask, render_template, Response, url_for, send_from_directory
 from flask_frozen import Freezer
+from yaml import safe_load
+from os import path
 from shutil import copy
 
 
@@ -7,10 +9,49 @@ app = Flask(__name__)
 freezer = Freezer(app)
 
 
+src_config = path.join("static", "admin", "config.yml")
+dest_config = path.join("build", "admin", "config.yml")
+
+
+def load_data(filename):
+
+    load_path = path.join("content", filename)
+    with open(load_path, "r") as f:
+        return safe_load(f)
+
+
+@app.context_processor
+def inject_settings():
+    with open("content/settings/general.yml", "r") as f:
+        general = safe_load(f)
+    with open("content/partials/nav.yml", "r") as f:
+        nav = safe_load(f)
+
+    with open("content/partials/footer.yml", "r") as f:
+        footer = safe_load(f)
+
+    with open("content/seo/seo.yml", "r") as f:
+        seo = safe_load(f)
+
+    return {
+        "general": general,
+        "nav": nav,
+        "footer": footer,
+        "seo": seo,
+    }
+
+
 # -- Home Route -- #
 @app.route("/")
 def index():
-    return render_template("index.html")
+    home_data = {
+        "hero": load_data("home/hero.yml"),
+        "our_story": load_data("home/our-story.yml"),
+        "why_choose_us": load_data("home/why-choose-us.yml"),
+        "services_section": load_data("home/our-services.yml"),
+        "contact": load_data("home/contact.yml"),
+    }
+    return render_template("index.html", home_data=home_data)
 
 
 # -- Services Routes -- #
@@ -71,6 +112,13 @@ def robots_txt():
     return Response("\n".join(lines), mimetype="text/plain")
 
 
+# -- Admin Route -- #
+@app.route("/admin/")
+@app.route("/admin/<path:path>")
+def admin(path="index.html"):
+    return send_from_directory("static/admin", path)
+
+
 # --- Sitemap Route---- #
 @app.route("/sitemap.xml")
 def sitemap():
@@ -109,4 +157,5 @@ if __name__ == "__main__":
     app.config["FREEZER_BASE_URL"] = "https://steadlinerecovery.co.uk/"
     freezer.init_app(app)
     freezer.freeze()
+    copy(src_config, dest_config)
     copy("build/404/index.html", "build/404.html")

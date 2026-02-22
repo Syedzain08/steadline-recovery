@@ -1,0 +1,44 @@
+heading_1: Our
+heading_2: Services
+cards:
+  - title: Motor Accidents
+    description: "Professional accident recovery for all vehicle types. Safe, careful handling of collision situations."
+    image: static/img/motor-accidents.png
+    image_alt: "Motor Accidents Recovery"
+    link_text: "Learn More"
+  - title: Vehicle Breakdown
+    description: "Fast response for breakdowns and mechanical failures. Quick recovery to get you moving again."
+    image: static/img/vehicle-breakdown.png
+    image_alt: "Vehicle Breakdown Assistance"
+    link_text: "Learn More"
+  - title: Emergency Towing
+    description: "24/7 emergency towing throughout Halifax. No job too big or small - we're always ready."
+    image: static/img/emergency-towing.png
+    image_alt: "Emergency Towing Service"
+    link_text: "Learn More"
+  - title: Roadside Assistance
+    description: "Rapid on-site support for minor vehicle issues. We handle lockouts, fuel delivery, and other urgent problems to get you back on the road fast."
+    image: static/img/roadside-assistance.png
+    image_alt: "Roadside Assistance"
+    link_text: "Learn More"
+  - title: Vehicle Transport
+    description: "Safe, secure vehicle transport across Halifax and beyond. Whether moving cars, motorcycles, or classic vehicles, we ensure a smooth journey."
+    image: static/img/vehicle-transport.png
+    image_alt: "Vehicle Transport Service"
+    link_text: "Learn More"
+  - title: Jumpstarts
+    description: "Fast and reliable battery jumpstarts at your location. Never get stranded. our team gets your vehicle running quickly."
+    image: static/img/jumpstarts.png
+    image_alt: "Jumpstart Service"
+    link_text: "Learn More"
+  - title: Tyre Services
+    description: "On-the-spot tyre repair, replacement, and maintenance. We keep you rolling safely with professional tyre care."
+    image: static/img/tyre-services.png
+    image_alt: "Tyre Services"
+    link_text: "Learn More"
+  - title: Scrap Vehicle Recovery
+    description: "Efficient removal of unwanted or damaged vehicles. Quick disposal with minimal hassle for you."
+    image: static/img/scrap-vehicle-recovery.png
+    image_alt: "Scrap Vehicle Recovery"
+    link_text: "Learn More"
+    
